@@ -1,0 +1,8 @@
+content script_recorder  chrome/content/
+ 
+overlay chrome://selenium-ide/content/selenium-ide-overlay.xul chrome://script_recorder/content/extension-loader.xul
+overlay chrome://selenium-ide/content/selenium-ide-common.xul chrome://script_recorder/content/view/common-overlay.xul
+overlay chrome://selenium-ide/content/selenium-ide.xul chrome://script_recorder/content/view/ide-overlay.xul
+# overlay chrome://selenium-ide/content/selenium-ide-sidebar.xul chrome://script_recorder/content/view/sidebar-overlay.xul
+
+locale script_recorder en-US locale/en-US/

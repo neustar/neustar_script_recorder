@@ -1,0 +1,29 @@
+<apidoc>
+  <function name="beginTransaction">
+    <comment>Starts a Neustar Web Performance Management transaction.</comment>
+  </function>
+  <function name="endTransaction">
+    <comment>Ends the current transaction. Any activity (from either an RBU or VU) will not be recorded until a new transaction is started.</comment>
+  </function>
+
+  <function name="beginStep">
+    <param name="stepName">A description of the step, to be used for various reporting</param>
+    <param name="stepTimeout">(Optional) The step timeout in milliseconds</param>
+    <comment>Starts a Neustar step using the specified step number in sequence (must be called from within a transaction).</comment>
+  </function>
+  <function name="endStep">
+    <comment>Stops the current step. Any activity (from either an RBU or a VU) will not be recorded until a new step is started.</comment>
+  </function>
+
+  <!-- <function name="getCSV">
+    <param name="name">The name of the CSV file, which you will be asked to upload by BrowserMob upon saving your script.</param>
+    <comment>Creates and returns a table of data backed by a Comma Separated Value file. This allows scripts to depend on data sets that can be helpful for more realistic testing, such as using a different username/password to login to a website each time the script runs.</comment>
+  </function>
+  <function name="getCSVRow">
+    <param name="index">The index of the CSV table, where 0 is the first row after the header row.</param>
+    <comment>Returns the specified row (zero-indexed) from the CSV table. The returned map is a key/value pair of the CSV headers (which comes from the first row) as the key and the random row's data as the values.</comment>
+  </function>
+  <function name="getRandomCSVRow">
+    <comment>Returns a random row in the CSV table. The returned map is a key/value pair of the CSV headers (which comes from the first row) as the key and the random row's data as the values.</comment>
+  </function> -->
+</apidoc>

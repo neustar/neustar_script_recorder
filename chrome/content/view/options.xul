@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+
+<!DOCTYPE prefwindow [
+<!ENTITY % optionsDTD SYSTEM "chrome://script_recorder/locale/options.dtd">
+%optionsDTD;
+]>
+
+<prefwindow id="webmetrics.options"
+      title="&webmetrics.options.title;"
+      width="500"
+      height="245"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      xmlns:html="http://www.w3.org/1999/xhtml">
+  <script src="chrome://script_recorder/content/js/options.js" />
+  <script src="chrome://script_recorder/content/js/secure.js" />
+  <script src="chrome://script_recorder/content/extensions/script_uploader.js" />
+  <script type="application/x-javascript" src="chrome://script_recorder/content/third_party/Crypto-JS/2.3.0-crypto-sha1-hmac.js"/>
+
+  <prefpane id="webmetrics.options.pane" 
+      label="&webmetrics.options.title;"
+      flex="1"
+      onpaneload="
+        document.getElementById('webmetrics.options.publickey').value = retrieveWebMetricsPublicKey();
+        document.getElementById('webmetrics.options.secretkey').value = retrieveWebMetricsSecretKey();
+      "
+      >
+
+    <vbox id="webmetrics.options.content" flex="1" align="start">
+      <vbox>
+        <description style="max-width: 450px">&webmetrics.options.content.paragraph1;</description>
+        <spacer />
+        <description style="max-width: 450px">&webmetrics.options.content.paragraph2;</description>
+      </vbox>
+    </vbox>
+
+    <vbox id="webmetrics.options.messages" flex="1" align="start">
+      <hbox id="webmetrics.options.credentials.check" hidden="true" style="color: red">
+        <description>&webmetrics.options.credentials.invalid;</description>
+      </hbox>
+    </vbox>
+
+    <vbox id="webmetrics.options.credentials" flex="1" align="end">
+      <hbox>
+        <hbox width="110">
+          <label control="webmetrics.options.publickey.label" value="&webmetrics.options.publickey;" />
+        </hbox>  
+        <hbox>
+          <textbox id="webmetrics.options.publickey"
+                   maxlength="70"
+                   size="36"
+                   />
+        </hbox>
+      </hbox>
+
+      <hbox>
+        <hbox width="110">
+          <label control="webmetrics.options.secretkey.label" value="&webmetrics.options.secretkey;" />
+        </hbox>
+        <hbox>
+          <textbox id="webmetrics.options.secretkey"
+                   maxlength="36"
+                   size="36"
+                   />
+        </hbox>
+      </hbox>
+
+      <hbox flex="1" pack="right" align="right" id="prefButtons">
+        <button id="okButton"
+                label="OK"
+                oncommand="var logger = new Log('Credentials Check');
+                           window.setCursor('wait');
+                           var check = new ScriptUploader();
+                           var uri = check.build_credentials_check_url(document.getElementById('webmetrics.options.publickey').value,
+                                                                       document.getElementById('webmetrics.options.secretkey').value);
+                           var xmlHttp = new XMLHttpRequest();
+                           xmlHttp.open('GET', uri);
+
+                           var xmlHttpTimeout = window.setTimeout(ajaxTimeout, 10000);
+                           function ajaxTimeout() {
+                              xmlHttp.abort();
+                              document.getElementById('webmetrics.options.credentials.check').setAttribute('hidden', 'false');
+                              window.setCursor('auto');
+                           }
+
+                           xmlHttp.onreadystatechange = function() {
+                              if (xmlHttp.readyState == 4) {
+                                 logger.log(logger.DEBUG, 'status is ' + xmlHttp.status);
+                                 if (xmlHttp.status == 200) {
+                                    clearTimeout(xmlHttpTimeout);
+                                    storePublicAndSecretKey(document.getElementById('webmetrics.options.publickey').value,
+                                                            document.getElementById('webmetrics.options.secretkey').value);
+                                    window.setCursor('auto');
+                                    window.close();
+                                 } else {
+                                     document.getElementById('webmetrics.options.credentials.check').setAttribute('hidden', 'false');
+                                     window.setCursor('auto');
+                                 }
+                              }
+                           };
+                           xmlHttp.send();
+                           "
+                           />
+        <button id="cancelButton"
+                label="Cancel" 
+                oncommand="window.close();"
+                />
+      </hbox>
+    </vbox>
+  </prefpane>
+</prefwindow>
+

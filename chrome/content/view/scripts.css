@@ -1,0 +1,58 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+#neustar-scripts-table {
+    border-width: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    outline: 0 none;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+#neustar-scripts-table tr td {
+    padding: 5px;
+}
+
+#neustar-scripts-table tr td.name,
+#neustar-scripts-table tr td.status {
+    border-right: 1px solid #ccc;
+}
+
+#neustar-scripts-table tr td.status,
+#neustar-scripts-table tr td.actions {
+    width: 100px;
+}
+#neustar-scripts-table tr td.revalidate,
+#neustar-scripts-table tr td.delete,
+#neustar-scripts-table tr td.load {
+    width: 33px;
+}
+
+#neustar-scripts-table thead {
+    border-bottom: 1px solid #ccc;
+    background-color: #ddd;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 0 0 #fff;
+    background-image: linear-gradient(bottom, rgb(215,215,215) 25%, rgb(238,238,238) 73%);
+    background-image: -moz-linear-gradient(bottom, rgb(215,215,215) 25%, rgb(238,238,238) 73%);
+}
+
+#neustar-scripts-table .status {
+    text-align: center;
+}
+
+#neustar-scripts-table .even { 
+    background: #ECF0F9;
+}
+
+#neustar-scripts-table .odd {
+    background: #fff;
+}

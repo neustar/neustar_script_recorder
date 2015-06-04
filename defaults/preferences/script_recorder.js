@@ -1,0 +1,1 @@
+pref("extensions.selenium-ide.webmetrics.api_url","http://api.neustar.biz/performance");

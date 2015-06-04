@@ -1,0 +1,6 @@
+<!ENTITY webmetrics.options.title "Neustar Connection Options">
+<!ENTITY webmetrics.options.content.paragraph1 "To use the Neustar WPM Integrated Scripting Environment successfully you need to provide your API keys. The API Secret is not sent over the Internet but is used to sign API calls.">
+<!ENTITY webmetrics.options.content.paragraph2 "The keys can be found in WPM -> My Account -> Manage.">
+<!ENTITY webmetrics.options.secretkey "API Secret">
+<!ENTITY webmetrics.options.publickey "API Key">
+<!ENTITY webmetrics.options.credentials.invalid "Your credentials could not be validated. Please check both.">

@@ -1,0 +1,17 @@
+<!DOCTYPE page [
+<!ENTITY % webmetricsDTD SYSTEM "chrome://script_recorder/locale/neustar.dtd">
+%webmetricsDTD;
+]>
+
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  id="webmetrics-delete"
+  title="Confirm Delete?"
+  ondialogaccept="return onOK();"
+  onload="onLoad();"
+  persist="screenX screenY width height"
+  windowtype="myDialogWindowType">
+
+  <script type="application/javascript" src="chrome://script_recorder/content/js/deletedialog.js"/>
+  <hbox>&neustar.delete.question;</hbox>
+</dialog>

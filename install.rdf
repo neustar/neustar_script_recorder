@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>script_recorder@webmetrics.com</em:id>
+    <em:name>Neustar Script Recorder</em:name>
+    <em:version>3.0</em:version>
+    <em:creator>Neustar Web Performance Management</em:creator>
+    <em:description>A plugin to create and upload scripts to the Neustar Web Performance Management servers or export locally for further development</em:description>
+    <em:type>2</em:type> <!--Type extension-->
+    <em:homepageURL>http://www.neustar.biz</em:homepageURL>
+    
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- firefox -->
+        <em:minVersion>8.*</em:minVersion>
+        <em:maxVersion>11.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    
+    <em:requires>   
+     <Description>
+         <em:id>{a6fd85ed-e919-4a43-a5af-8da18bda539f}</em:id>
+         <em:minVersion>1.1.0</em:minVersion>
+         <em:maxVersion>1.*</em:maxVersion>
+     </Description>  
+    </em:requires>
+  </Description>
+</RDF>

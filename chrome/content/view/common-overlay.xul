@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/findBar.css" type="text/css"?>
+<?xml-stylesheet href="chrome://script_recorder/content/css/toolbar.css" type="text/css"?>
+
+<!DOCTYPE page [
+<!ENTITY % webmetricsDTD SYSTEM "chrome://script_recorder/locale/neustar.dtd">
+%webmetricsDTD;
+]>
+
+<overlay id="script_recorder_overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="chrome://script_recorder/content/js/secure.js"/>
+  <script type="application/x-javascript" src="chrome://script_recorder/content/extensions/script_uploader.js"/>
+  <script type="application/x-javascript" src="chrome://script_recorder/content/extensions/sha1.js"/>
+  <script type="application/x-javascript" src="chrome://script_recorder/content/js/scriptsview.js"/>
+  <script type="application/x-javascript" src="chrome://script_recorder/content/js/array.js"/>
+  <script type="application/x-javascript" src="chrome://script_recorder/content/js/editor.js" insertbefore="strings" />
+  
+  <commandset id="seleniumIDECommands">
+    <command id="cmd_upload" oncommand="var uploader = new ScriptUploader();
+                                        uploader.upload();"/>
+  </commandset>
+  
+  <toolbar id="toolbar2">
+      <toolbarseparator id="webmetrics-pre-separator"
+                        insertbefore="webmetrics-upload-button" />
+      <toolbarbutton id="webmetrics-upload-button"
+                     insertafter="webmetrics-pre-separator"
+                     label="&neustar.upload.button.tooltip;"
+                     class="icon"
+                     tooltiptext="&neustar.upload.button.tooltip;"
+                     command="cmd_upload" />
+      <toolbarseparator id="webmetrics-post-separator"
+                        insertafter="webmetrics-upload-button"
+                        insertbefore="record-button" />
+  </toolbar>
+  
+  <vbox id="logBox">
+      <hbox id="logMenu">
+          <toolbarbutton id="WebmetricsScriptsTab"
+                         label="&neustar.tab.label;"
+                         onclick="
+                             window.editor.infoPanel.WebmetricsScriptsView = new Editor.WebmetricsScriptsView(this);
+                             window.editor.infoPanel.switchView(window.editor.infoPanel.WebmetricsScriptsView)"
+                         class="console-tab"
+                         insertafter="helpTab"
+                         />
+      </hbox>
+      <iframe flex="1"
+              id="WebmetricsScriptsView"
+              src="chrome://script_recorder/content/view/scripts.html"
+              hidden="true"
+              type="content">
+      </iframe>
+  </vbox>
+</overlay>

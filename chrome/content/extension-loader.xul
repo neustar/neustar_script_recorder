@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<overlay id="script_recorder_overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         xmlns:html="http://www.w3.org/1999/xhtml">
+  <script type="application/x-javascript" src="chrome://selenium-ide/content/api.js"/>
+  <!-- <script type="application/x-javascript" src="chrome://script_recorder/content/pluginframework.js"/> -->
+  <script type="application/x-javascript" src="chrome://script_recorder/content/extensions/sha1.js"/>
+  <script type="application/x-javascript" src="chrome://script_recorder/content/install.js"/>
+  
+  <html:script type="application/javascript">
+      var ide_api = new API();
+      ide_api.addPlugin("script_recorder@webmetrics.com");
+      ide_api.addPluginProvidedFormatter("neustar-js", "Neustar JS", "chrome://script_recorder/content/formats/neustar.js");
+      ide_api.addPluginProvidedUserExtension("chrome://script_recorder/content/extensions/neustar_api.js", "chrome://script_recorder/content/extensions/neustar_api.xml");
+  </html:script>  
+</overlay>
