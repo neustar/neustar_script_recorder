@@ -10,9 +10,7 @@ Uses REST API calls to load scripts recorded in the addon directly to the script
 Installation
 ============
 
-Add the contents of this repository to a zip archive and change the extension to .xpi. For more info, please see the following.
-
-https://developer.mozilla.org/en-US/Add-ons/Extension_Packaging
+Run neustar_script_recorder.xpi in Mozilla Firefox and follow the browser prompt to install the extension.
 
 License
 ========
