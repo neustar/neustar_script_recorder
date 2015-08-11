@@ -184,8 +184,9 @@ ScriptUploader.prototype.upload = function () {
             var proposedName=tco.getTitle();
             if(!(proposedName==actualName)){
                 window.alert("Script name exists.Name changed to "+ actualName+".");
-            }else
+            }else{
                 window.alert("Upload successful!");
+            }
             return response.data.script.id;
           case 422:    // parse error
           case 500:
