@@ -180,7 +180,12 @@ ScriptUploader.prototype.upload = function () {
         switch (xmlHttp.status) {
           case 200:     // ok
             response = JSON.parse(response_json);
-            window.alert("Upload successful!");
+            var actualName=response.data.script.name;
+            var proposedName=tco.getTitle();
+            if(!(proposedName==actualName)){
+                window.alert("Script name exists.Name changed to "+ actualName+".");
+            }else
+                window.alert("Upload successful!");
             return response.data.script.id;
           case 422:    // parse error
           case 500:
