@@ -1,6 +1,8 @@
 neustar_script_recorder
 =======================
 
+**The current version of this extension does not support Firefox 43 or above.**
+
 An extension for the Selenium IDE.
 
 http://docs.seleniumhq.org/download/
