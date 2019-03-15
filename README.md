@@ -1,4 +1,4 @@
-# <font color="#FF0000">**This extension is no longer in development or supported**</font>
+# <span style="color:red">**This extension is no longer in development or supported**</span>
 
 neustar_script_recorder
 =======================
